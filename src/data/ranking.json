@@ -1,0 +1,19 @@
+[
+    { "id": "Web12", "comision": "Web12", "modulo": 3, "cantidad": 19,"inscriptos": 33},
+    { "id": "Web3p", "comision": "Web3p", "modulo": 3, "cantidad": 17,"inscriptos": 21},
+    { "id": "Web13", "comision": "Web13", "modulo": 3, "cantidad": 26,"inscriptos": 56},
+    { "id": "Web14", "comision": "Web14", "modulo": 3, "cantidad": 28,"inscriptos": 51},
+    { "id": "Web4p", "comision": "Web4p", "modulo": 2, "cantidad": 16,"inscriptos": 22},
+    { "id": "Web15", "comision": "Web15", "modulo": 2, "cantidad": 32,"inscriptos": 56},
+    { "id": "Web16", "comision": "Web16", "modulo": 2, "cantidad": 33,"inscriptos":54 },
+    { "id": "Web5p", "comision": "Web5p", "modulo": 3, "cantidad": 19,"inscriptos": 22},
+    { "id": "Web17", "comision": "Web17", "modulo": 2, "cantidad": 29,"inscriptos": 58},
+    { "id": "Web6p", "comision": "Web6p", "modulo": 2, "cantidad": 18,"inscriptos": 22},
+    { "id": "Web18", "comision": "Web18", "modulo": 2, "cantidad": 21,"inscriptos": 29},
+    { "id": "Web19", "comision": "Web19", "modulo": 2, "cantidad": 26,"inscriptos":33 },
+    { "id": "Web7p", "comision": "Web7p", "modulo": 1, "cantidad": 12,"inscriptos": 22},
+    { "id": "Web8p", "comision": "Web8p", "modulo": 1, "cantidad": 15,"inscriptos": 21},
+    { "id": "Web20", "comision": "Web20", "modulo": 1, "cantidad": 26,"inscriptos": 32},
+    { "id": "Web21", "comision": "Web21", "modulo": 1, "cantidad": 26,"inscriptos": 32}
+  ]
+  
