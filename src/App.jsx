@@ -1,15 +1,11 @@
 import rankingData from "./data/ranking.json";
-import MedalIcon from "./components/MedalIcon";
-import { formatNumber, formatPercentage } from "./helpers/functions";
-import {
-  moduleLabels,
-  typeLabels,
-  podiumVariants,
-  defaultBadgeClasses,
-  defaultContainerClasses,
-} from "./data/variables";
+
+import { moduleLabels, typeLabels } from "./data/variables";
 import HeaderApp from "./components/HeaderApp";
 import FooterApp from "./components/FooterApp";
+import ListPodiumApp from "./components/ListPodiumApp";
+import MedalCardApp from "./components/MedalCardApp";
+import InfoModalidadApp from "./components/InfoModalidadApp";
 // import logo from "./assets/logo.png";
 
 function App() {
@@ -103,19 +99,7 @@ function App() {
         <main className="flex flex-col gap-14">
           {rankingByType.map(({ tipo, info, modules, modo }) => (
             <section key={tipo} className="space-y-8">
-              <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-left">
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-900/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.45em] text-sky-200/80">
-                  {info.badge}
-                </span>
-                <h2 className="text-3xl font-semibold text-white sm:text-4xl">
-                  {info.titulo}
-                </h2>
-                {info.descripcion ? (
-                  <p className="max-w-3xl text-balance text-sm text-slate-300 sm:text-base">
-                    {info.descripcion}
-                  </p>
-                ) : null}
-              </div>
+              <InfoModalidadApp info={info} />
 
               <div className="grid gap-10">
                 {modules.map((bloque) => {
@@ -142,72 +126,10 @@ function App() {
                               </p>
                             ) : null}
                           </div>
-                          <div className="flex items-center gap-4 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-400 px-4 py-3 text-slate-900 shadow-lg shadow-amber-500/30">
-                            <MedalIcon className="h-14 w-14 drop-shadow-lg" />
-                            <div>
-                              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-800/80">
-                                1er puesto
-                              </p>
-                              <p className="text-lg font-semibold">
-                                {top.comision}
-                              </p>
-                              <p className="text-sm font-semibold text-slate-800/80">
-                                {formatPercentage(top.porcentaje)}% de
-                                permanencia
-                              </p>
-                              <p className="text-xs font-medium text-slate-700">
-                                {formatNumber(top.cantidad)} activos de{" "}
-                                {formatNumber(top.inscriptos)} inscriptos
-                              </p>
-                              {modo === "general" ? (
-                                <p className="text-xs font-medium text-slate-600">
-                                  Módulo {top.modulo}
-                                </p>
-                              ) : null}
-                            </div>
-                          </div>
+                          <MedalCardApp top={top} modo={modo} />
                         </div>
 
-                        <ul className="flex flex-col gap-4">
-                          {bloque.comisiones.map((item, index) => {
-                            const podium = podiumVariants[index];
-                            const containerClasses =
-                              podium?.container ?? defaultContainerClasses;
-                            const badgeClasses =
-                              podium?.badge ?? defaultBadgeClasses;
-                            return (
-                              <li
-                                key={item.id}
-                                className={`group flex items-center justify-between gap-4 rounded-2xl border px-5 py-4 ${containerClasses}`}
-                              >
-                                <div className="flex items-center gap-4">
-                                  <span
-                                    className={`flex h-10 w-10 items-center justify-center rounded-full text-lg font-semibold ${badgeClasses}`}
-                                  >
-                                    #{index + 1}
-                                  </span>
-                                  <div>
-                                    <p className="text-lg font-semibold text-white">
-                                      {item.comision}
-                                    </p>
-                                    <p className="text-sm text-slate-400">
-                                      {formatNumber(item.cantidad)} /
-                                      {formatNumber(item.inscriptos)} alumnos
-                                    </p>
-                                  </div>
-                                </div>
-                                <div className="text-right">
-                                  <p className="text-2xl font-semibold text-white">
-                                    {formatPercentage(item.porcentaje)}%
-                                  </p>
-                                  <p className="text-xs uppercase tracking-[0.4em] text-slate-400">
-                                    retención
-                                  </p>
-                                </div>
-                              </li>
-                            );
-                          })}
-                        </ul>
+                        <ListPodiumApp bloque={bloque} />
                       </div>
                     </article>
                   );
